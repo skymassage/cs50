@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block main %}
+    <!-- https://memegen.link/ programmatically generate memes based solely on requested URLs which have a naming rules. -->
+    <img alt="{{ top }}" class="border img-fluid" src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=https://i.imgur.com/CsCgN7Ll.png&width=400" title="{{ top }}">
+    <!-- "urlencode" is a built-in filter in Jinja2. It's used to escape special characters in URLs, making a string safe for use as a URL parameter.
+         This is useful when you're passing data in a URL that may contain characters that have special meanings in a URL context. -->
+    <!-- Hovering the mouse over the image will display the attribute "title" of <img>. -->
+{% endblock %}
