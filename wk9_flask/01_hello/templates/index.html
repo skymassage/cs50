@@ -1,0 +1,17 @@
+{#<!-- Try adding "?your_name=any_string" to the base URL (here is .../?your_name=any_string) in your browser's URL bar.-->>#}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>1_hello</title>
+    </head>
+    <body>
+        Hello, {{ placeholder }}!
+        {#<!-- {{ placeholder }} is a placeholder for something that will be later provided by our Flask server.
+               "{{ }}" is similar in spirit to Python's f-strings, or to C's "%s".
+               This is Jinja which is a web template engine for the Python.
+               It's just going to be some syntax with curly braces that allow us to use placeholders in our actual web pages. -->#}
+        {#<!-- In Jinja, comment out some lines with curly braces and hashtags like this. -->#}
+    </body>
+</html>

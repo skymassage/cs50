@@ -1,0 +1,7 @@
+{#<!-- This time there's no layout. There's no inheritance of that layout.html,
+       We are literally generating just a whole bunch of <li> fragments,
+       but we still can see the search results on the page by adding to the root URL "/search?q=...",
+       and we can inspect if the source code of this page is the same as below.-->#}
+{% for show in shows %}
+    <li>{{ show.title }}</li>
+{% endfor %}

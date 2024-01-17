@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <h1 class="mt-5">Library of Babel</h1>
+
+    <table> {#<!-- Use <table> to put two forms on the same row. so the buttons "Go to page" and "Delete search history" are displayed on the same row. -->#}
+        <tbody> {#<!-- Note that I don't need to use <thead> here. -->#}
+            <tr>
+                <td>
+                    <form action="/" method="post">
+                        <input name="page" type="text">
+                        <button type="submit">
+                            Go to page
+                        </button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/" method="post">
+                        <input name="delete" value="deleted" type="hidden">
+                        <button type="submit">
+                            Delete search history
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p class="text-break mt-3">
+        {{ random_string }}
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Search History
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in history %}
+                <tr>
+                    <td>{{ row.page }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

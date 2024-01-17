@@ -1,0 +1,14 @@
+{#<!-- This html file is the blueprint for our web page. -->#}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>3_layout</title>
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {#<!-- "{% block block_name %}...{% endblock %}" from Jinja allows for the insertion of other code from other HTML files,
+               where "block_name" here I named "body" (you can name anything you want) because I'm in the <body>.  -->#}
+    </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>AJAX</title>
+    </head>
+    <body>
+
+        {#<!-- Here is no form and button for submitting because it all happens automatically.
+               But there is by default the empty <ul> that has nothing by default until we start using that API (Application Programming Interface ). -->#}
+        <input autocomplete="off" autofocus placeholder="Query" type="search">
+        <ul></ul>
+
+        {#<!-- We are going to make a user interface that uses a technique called AJAX (Asynchronous JavaScript and XML),
+               which uses various web technologies together, including JavaScript,
+               to send and receive data from a server asynchronously,
+               without interfering with the display and behavior of the existing page and having to submit a form.
+               You can secretly in JavaScript code send a request to the server to get back more data,
+               and then plug it into the DOM. This makes for more seamless experiences like autocomplete on any website.
+               What Ajax allows us to do is basically refresh certain parts of the page, rather than the entire page.
+               For example, you might see this if you're on a sports website where scores of games that are going on currently are being updated, but the whole page doesn't refresh.  -->#}
+        <script>
+            let input = document.querySelector('input');
+
+            /* "async" is used to declare an asynchronous function which is a function that returns a object called "promise".
+
+               In JavaScript, a promise is a constructor (also an object) that represents the eventual completion or failure of an asynchronous operation, and its resulting value.
+               It's a way to handle asynchronous operations without blocking the rest of your code. A promise is in one of three states:
+               1. Pending: The promise's outcome hasn't yet been determined, because the asynchronous operation that will produce its result hasn't completed yet.
+               2. Fulfilled: The asynchronous operation has completed, and the promise has a resulting value.
+               3. Rejected: The asynchronous operation failed, and the promise will never be fulfilled. In the rejected state, a promise has a reason that indicates why the operation failed.
+               Besides, there is another term  called "resolved" which is a bit more general. A promise is considered resolved if it is either fulfilled or rejected.
+               However, there's a slight nuance: a promise can also be resolved to another promise.
+               This means that the resolution of the first promise is actually dependent on the resolution of the second promise.
+               So, all fulfilled and rejected promises are resolved, but a resolved promise is not necessarily fulfilled or rejected - it could be waiting on another promise.
+
+               "async" also allows you to use "await" within the asynchronous function.
+               "await" can be used to pause the execution of the function until a promise is resolved or rejected,
+               making it easier to write asynchronous code in a more synchronous style. */
+
+            input.addEventListener('input', async function() {
+                /* Here, "async" is used to declare an asynchronous event handler function.
+                   This allows the use of "await" to pause the functions while waiting for the server's response,
+                   without blocking the rest of the code from running. */
+
+                let response = await fetch('/search?q=' + input.value);
+                /* It sends an asynchronous GET request to the server at the path '/search' with a query parameter 'q' set to the value of the input field.
+                   "await" is used to wait for the promise returned by "fetch()" to resolve with the server's response. */
+                /* "fetch()" is a built-in JavaScript function used to make HTTP requests.
+                   By default, "fetch()" makes a GET request. If you wanted to make a POST request,
+                   you would need to specify it in the options like so: fetch(url, {method: 'POST'}).*/
+
+                let shows = await response.text();
+                /* "fetch()" does indeed return a promise.
+                   However, when this promise resolves, it gives us a response object which contains
+                   the status of the request, the headers, and the body of the response.
+                   The promise resolves with a response object once the server responds to the request.
+                   The response object represents the response to the request and provides methods to access
+                   the body of the response in various formats, such as ".text()" for text format or ".json()" for JSON format.
+                   So, in short, "fetch()" returns a promise that resolves to a response object.
+
+                   Here, "response" is the response object that the promise from "fetch()" resolved to.
+                   We then call the ".text()" method on this response object to read the response body as text, which also returns a promise.
+                   This promise will resolve to the actual data you're interested in.
+                   And "await" is used to wait for this operation to complete.
+                   The resulting text ("response.text()") is the HTML string generated by the search.html template. */
+
+                document.querySelector('ul').innerHTML = shows;
+                /* "shows" in the app.py and search.html is a list of dictionaries, and looks like this: [{'title': 'title_1', ...other columns...}, {'title': 'title_2', ...other columns...}, ...].
+                   "document.querySelector('ul').innerHTML=shows" here is a string that contains the HTML inside the <ul> element, and looks like this: <li>title_1</li><li>title_2</li>...
+                   When making the AJAX call in the JavaScript code, it sends a request to the "/search" route in the Flask application app.py.
+                   app.py then queries shows.db and sends the results (the "shows" list of dictionaries) to the search.html template.
+                   The template renders this data (looks like "<li>title_1</li><li>title_2</li>...") into HTML.
+                   This rendered HTML is what your AJAX call receives as a response, whose .text() is "<li>title_1</li><li>title_2</li>...". */
+
+            });
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{#<!-- {% extends "layout.html" %} tells the server where to get the layout of this page.  -->#}
+
+{% block body %}
+{#<!-- "{% block body %}...{% endblock %}" tells what code to be inserted into layout.html. -->#}
+
+    <form action="/greet" method="get">
+        <input autocomplete="off" autofocus name="your_name" placeholder="Name" type="text">
+        <button type="submit">Greet</button>
+    </form>
+
+{% endblock %}

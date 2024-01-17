@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>2_hello</title>
+    </head>
+    <body>
+        {#<!-- Create a form that's going to submit whatever the textbox value is to a route called "/greet".
+               By default, because there's no HTTP, or HTTPS, or no domain name, /greet is going to be assumed to be not a google.com,
+               but whatever my own server's URL is. So whatever my code space's URL is, that's going to be the implicit prefix.
+               This /greet is just the route. -->#}
+        <form action="/greet" method="get">
+            {#<!-- Note that "your_name" is used to reference the submitted form data. -->#}
+            <input autocomplete="off" autofocus name="your_name" placeholder="Name" type="text">
+            <button type="submit">Greet</button>
+        </form>
+    </body>
+</html>

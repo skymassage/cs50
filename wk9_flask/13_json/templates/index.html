@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>JSON</title>
+    </head>
+    <body>
+
+        <input autocomplete="off" autofocus placeholder="Query" type="text">
+
+        <ul></ul>
+
+        <script>
+
+            let input = document.querySelector('input');
+            input.addEventListener('input', async function() {
+                let response = await fetch('/search?q=' + input.value);
+                let shows = await response.json(); // "response.json()" is another promise that resolves with the body of the response parsed as JSON.
+                let html = '';
+                for (let index in shows) {
+                    /* If some names ofthe shows have actually '<' or '&', that could break our HTML entirely.
+                       ".replace()" is used to replace a specified value with another value in a string.
+
+                       This is done to prevent any potential HTML injection, as '<' (less than symbol) and '&' (ampersand symbol) have special meanings in HTML.
+                       By replacing them with their respective HTML entities (&lt; and &amp;),
+                       the browser will display the symbols as they are, instead of interpreting them as HTML code.
+
+                       "&lt;" is the HTML entity for '<'. It's used when you want to display '<' in your HTML document,
+                       you can use it when you don't want the browser to interpret it as the beginning of an HTML tag.
+                       Similarly, "&amp;" is the HTML entity for '&'. It's used when you want to display '&' in your HTML document. */
+                    let title = shows[index].title.replace('<', '&lt;').replace('&', '&amp;');
+                    html += '<li>' + title + '</li>';
+                }
+                document.querySelector('ul').innerHTML = html;
+            });
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <h1>Registrants</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Sport</th>
+                <th></th> {#<!-- This empty column is just to fit the button. -->#}
+            </tr>
+        </thead>
+        <tbody>
+            {% for registrant in registrants %} {#<!-- Note that the SQL output "registrants" is the list of dictionaries. -->#}
+                <tr>
+                    <td>{{ registrant.name }}</td>  {#<!-- registrant.name is the same as registrant["name"] -->#}
+                    <td>{{ registrant.sport }}</td>
+                    <td>
+                        <form action="/deregister" method="post">
+                            <input name="id" type="hidden" value="{{ registrant.id }}">
+                            {#<!-- "hidden" lets web developers include data that cannot be seen or modified by users when a form is submitted.
+                                   A hidden field often stores what database record that needs to be updated when the form is submitted.
+                                   Although the value is not displayed to the user in the page's content,
+                                   it is still visible (and can be edited) using any browser's developer tools,
+                                   so don't use "hidden" inputs if you want to secure your data not to be revealed. -->#}
+                            {#<!-- If I click on the deregister button, it submits a form containing the "registrant.id" value
+                                   corresponding to the "id", and sends to the "deregister" route. -->#}
+                            <button type="submit">Deregister</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <h1>Register</h1>
+    <form action="/register" method="post">
+        <input autocomplete="off" autofocus required name="name" placeholder="Name" type="text">
+        {#<!-- The attribute "required" tells the browser this field is required and you cannot leave it blank. -->#}
+        <select name="sport">
+        {#<!-- Create a select menu (known as a dropdown menu), inside of which are a whole bunch of options.
+               And each option typically follows this paradigm:
+               the option "value" which specifies the value to be sent to a server when a form is submitted,
+               and then the actual text that the humans see.
+               Note that "value" is referenced by the corresponding "name". -->#}
+            <option disabled selected>Sport</option> {#<!-- I can set a default option to prompt what type of menu this is,
+                                                            but you can't select it proactively because it's just used to prompt user.
+                                                            "disabled" specifies that an option should be disabled,
+                                                            and "selected" specifies that an option should be pre-selected when the page loads. -->#}
+            {% for sport in sports %} {#<!-- Jinja allows the for loop like this. -->>#}
+                <option value="{{ sport }}">{{ sport }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Register</button>
+    </form>
+
+{% endblock %}

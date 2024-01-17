@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <form action="/" method="post">
+    {#<!-- I want the form to submit to itself because I don't want to introduce another route (e.g. "/greet")
+           like in the previous example, but just want to use a single route.
+           So the form should be visible at the website index "/", that is, just set action = "/". -->#}
+        <input autocomplete="off" autofocus name="your_name" placeholder="Name" type="text">
+        <button type="submit">Greet</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <form action="/greet" method="post">
+    {#<!-- You can imagine scenarios where it is not safe to utilize the method "get", as passwords would show up in the URL.
+           The method "post" appends form-data inside the body of the HTTP request (data is not shown in URL). -->#}
+    {#<!-- If you reload the "greet.html" page, you will get a warning asking you to confirm the form resubmits,
+           because you just did was POST instead of GET. -->#}
+        <input autocomplete="off" autofocus name="your_name" placeholder="Name" type="text">
+        <button type="submit">Greet</button>
+    </form>
+
+{% endblock %}

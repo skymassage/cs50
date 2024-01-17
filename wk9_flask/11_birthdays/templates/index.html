@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>11_birthdays</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Birthdays</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+
+                <h2>Add a Birthday</h2>
+                <!-- TODO: Create a form for users to submit a name, a month, and a day -->
+                <form action="/" method="post">
+                    <input name="name" type="text" placeholder="Name" autocomplete="off" autofocus>
+                    <input name="month" id="month" type="number" min="1" max="12" placeholder="Month" autocomplete="off" autofocus>
+                    <input name="day" id="day" type="number" min="1" max="31" placeholder="Day" autocomplete="off" autofocus>
+                    <button type="submit">
+                        Add Birthday
+                    </button>
+                </form>
+            </div>
+
+            <div class="section">
+
+                <h2>All Birthdays</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Birthday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- TODO: Loop through the database entries to display them in this table -->
+                        {% for row in rows %}
+                            <tr>
+                                <td>{{ row["name"] }}</td>
+                                <td>{{ row["month"] }}/{{ row["day"] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <script> // Set the corresponding number of days according to the month
+            let month = document.querySelector('#month');
+            let day = document.querySelector('#day');
+            const small_months = ['4', '6', '9', '11',]
+            /* The "input" event fires when the value of an <input>, <select>, or <textarea> elements
+               has been changed as a direct result of a user action (such as typing in a textbox or checking a checkbox). */
+            month.addEventListener('input', function() {
+                if (month.value == '2') {
+                    day.max = '29';
+                    if (day.value > 29) {
+                        day.value = 29;
+                    }
+                } else if (small_months.includes(month.value)) {  // "includes" returns true if an array contains a specified value, false otherwise.
+                    day.max = '30';
+                    if (day.value > 30) {
+                        day.value = 30;
+                    }
+                } else {
+                    day.max = '31';
+                }
+            });
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,7 @@
+flask run: Flask is a third-party library that allows you to host web applications using the Flask framework within Python.
+           You can run flask by executing flask run. To do so, you will need a file called app.py
+           and a folder called templates containing the html files.
+           You must get into the folder storing your web code and materials, and run this command to execute Flask.
+
+/?key1=value1&key2=value2&...: Append this to the end of the URL. These were our so-called HTTP parameters.
+                               They are everything that comes after a question mark in a URL.
