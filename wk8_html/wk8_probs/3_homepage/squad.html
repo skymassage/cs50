@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Our Squad</title>
+        <link href="styles.css" rel="stylesheet">
+        <script src="script.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <body>
+
+        <header class="header">
+            <a href="index.html" class="logo">Catspiracy</a>
+            <nav class="navbar">
+                <a href="index.html" id="index">Home</a>
+                <a href="about.html" id="about">About Us</a>
+                <a href="squad.html" id="squad">Our Squad </a>
+                <a href="goal.html" id="goal">Our Goal</a>
+            </nav>
+        </header>
+
+        <main id="main_squad">
+
+            <h1>Squad Members</h1>
+            <p style="font-size: 25px">We sent a squad to Earth for a special operation</p>
+
+            <div class="member">
+                <img class="memberImg" src="static/tigger.jpg" alt="Captain: Sergeant Tigger" style="width:100%;max-width:300px">
+                <div class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content">
+                    <div class="caption"></div>
+                </div>
+
+                <img class="memberImg" src="static/rocky.jpg" alt="Soldier: Private Rocky" style="width:100%;max-width:300px">
+                <div class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content">
+                    <div class="caption"></div>
+                </div>
+
+                <img class="memberImg" src="static/kitty.jpg" alt="Soldier: Private Kitty" style="width:100%;max-width:300px">
+                <div class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content">
+                    <div class="caption"></div>
+                </div>
+            </div>
+
+        </main>
+
+        <script>
+            let modal = document.querySelector(".modal");
+            const myImgs = document.querySelectorAll('.memberImg');
+            for (let i = 0; i < myImgs.length; i++) {
+                myImgs[i].addEventListener('click', function() {
+                    modal.style.display = 'block';
+                    document.querySelector('.modal-content').src = myImgs[i].src;
+                    document.querySelector('.caption').innerHTML = myImgs[i].alt;
+                });
+
+            }
+
+            document.getElementsByClassName("close")[0].addEventListener('click', function(){
+                modal.style.display = "none";
+            });
+        </script>
+
+    </body>
+</html>

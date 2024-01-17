@@ -1,0 +1,71 @@
+/* We've found a few ways to eliminate redundancy in CSS such as moving it to separate files or using bootstrap,
+   but we still can make improvements. For example, what if we want several elements to have different styles,
+   but for all of them to be the same color? If we decide later we want to change the color,
+   then we would have to change it within several different elements.
+   Sass (Syntactically Awesome Style Sheets) is a language that allows us to write CSS more efficiently in several ways,
+   one of which is by allowing us to have variables. */
+/* We cannot link the .scss files to the .html files directly, we must compile the .scss file to the .css file
+   and link this .css file to the .html file for styling. So you can see the compiled results in the .css file. */
+
+/*  In Sass, we create a new file with the extension ".scss". In this file,
+    we can create a new variable by adding a '$' before a variable name, then a ':', then a value. */
+$color: brown;
+
+#ul_scss {
+    font-size: 10px;
+    color: $color;
+}
+
+#ol_scss {
+    font-size: 20px;
+    color: $color;
+}
+
+/* While using Sass, we can also physically nest our styling rather than use the CSS selectors we talked about earlier.
+   For example, if we want to apply some styling only to paragraphs and unordered lists within a div,
+   we can write the following: */
+div {
+    font-size: 18px;
+
+    p {
+        color: blue;
+    }
+
+    ul {
+        color: green;
+    }
+}
+
+/* One more feature that Sass gives us is known as inheritance.
+   This allows us to create a basic set of styling that can be shared by several different elements.
+   We do this by adding a '%' before a name of a set, adding some styling,
+   and then later adding the line "@extend %set_name" to the beginning of some styling.
+
+   Here, I add '%' before a set with the name "message" and add some styles that will be shared in the following classes.
+   And I add "@extend %message" to the beginning of each class, then I can add the additional styles for each class.
+   All of the messages, whether they be success messages, danger messages or warning messages,
+   they're all have the same font, the same border, the same padding and margin, spacing around and outside of it.
+   But each of the specific messages has a different background color. */
+%message {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+}
+
+.success {
+    @extend %message;
+    background-color: green;
+}
+
+.warning {
+    @extend %message;
+    background-color: orange;
+}
+
+.error {
+    @extend %message;
+    background-color: red;
+}

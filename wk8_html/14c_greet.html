@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Greet C</title>
+        <script>
+            /* If we want to postpone the javascript code getting executed until really the whole DOM is ready to go,
+               i.e., put the javascript code at the top.
+               In fact, once the browser itself has loaded all the HTML from top to bottom,
+               it will raise an event called "DOMContentLoaded".
+               So when "DOMContentLoaded" happens we can use "addEventListener" */
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector('form').addEventListener('submit', function(event){
+                    let name = document.querySelector('#name').value;
+                    alert('Hello, ' + name);
+                    event.preventDefault();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <form>
+        <input id="name" autocomplete="off" autofocus placeholder="Name" type="text">
+            <button type="submit">Greet</button>
+        </form>
+    </body>
+</html>

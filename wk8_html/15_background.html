@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<!-- Demonstrates programmatic changes to style -->
+
+<html lang="en">
+    <head>
+        <title>Background</title>
+    </head>
+    <body>
+        <button id="red">R</button>
+        <button id="green">G</button>
+        <button id="blue">B</button>
+        <script>
+            let body = document.querySelector('body');
+            document.querySelector('#red').addEventListener('click', function() {
+                /* In JavaScript, we can access the CSS style of the selector to change.
+                   Here we access the background color property of the body element, and set it equal to 'red'. */
+                body.style.backgroundColor = 'red';
+                /* In CSS, the CSS property for the background color of a page is actually background-color in all lowercase with a hyphen in between.
+                   However, in JavaScript, a hyphen would be mistaken for subtraction, like "background-color", which would be wrong.
+                   So the convention in JavaScript is when you're trying to manipulate CSS, you take whatever the property name is,
+                   font-size, background-color, and you get rid of the hyphen and change it into so called lower camel case here. */
+            });
+            document.querySelector('#green').addEventListener('click', function() {
+                body.style.backgroundColor = 'green';
+            });
+            document.querySelector('#blue').addEventListener('click', function() {
+                body.style.backgroundColor = 'blue';
+            });
+        </script>
+    </body>
+</html>

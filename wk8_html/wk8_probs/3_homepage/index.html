@@ -1,0 +1,38 @@
+<!-- 4 .html, 1 .css, 1 .js files
+     10 tags except for <html>, <head>, <body>, <title>,
+     5 types of selectors and  5 different css properties.
+     Can go from any html to any other html via hyperlink. -->
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Catspiracy</title>
+        <link href="styles.css" rel="stylesheet">
+        <script src="script.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <body>
+
+        <header class="header">
+            <a href="index.html" class="logo">Catspiracy</a>
+            <nav class="navbar">
+                <a href="index.html" id="index">Home</a>
+                <a href="about.html" id="about">About Us</a>
+                <a href="squad.html" id="squad">Our Squad </a>
+                <a href="goal.html" id="goal">Our Goal</a>
+            </nav>
+        </header>
+
+        <main id="main_index">
+            <h1>Hi, Human! </h1>
+            <h2>What's your name?</h2>
+            <form id="greet">
+                <input id="name" autocomplete="off" autofocus placeholder="Name" type="text">
+                <button type="submit">Greet</button>
+            </form>
+        </main>
+
+    </body>
+</html>

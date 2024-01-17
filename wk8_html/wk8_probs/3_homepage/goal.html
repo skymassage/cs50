@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Our Goal</title>
+        <link href="styles.css" rel="stylesheet">
+        <script src="script.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <body>
+
+        <header class="header">
+            <a href="index.html" class="logo">Catspiracy</a>
+            <nav class="navbar">
+                <a href="index.html" id="index">Home</a>
+                <a href="about.html" id="about">About Us</a>
+                <a href="squad.html" id="squad">Our Squad </a>
+                <a href="goal.html" id="goal">Our Goal</a>
+            </nav>
+        </header>
+
+        <main id="main">
+            <div class="container">
+                <div class="text">
+                    <h1>Our ultimate goal is</h1>
+                </div>
+                <img width="600" alt="A cute cate" src="static/conquest.jpg">
+
+                <div class="text">
+                    <h1>Don't try to fight against us</h1>
+                    <h2>Which one will you choose</h2>
+                    <button id="button_fight">Fight Against Us</button>
+                    <button id="button_obey">Obey and Adopt Us</button>
+                </div>
+            </div>
+        </main>
+
+        <script>
+            document.querySelector('#button_fight').addEventListener('click', function() {
+                alert('Are you sure? Don\'t regret.');
+            });
+            document.querySelector('#button_obey').addEventListener('click', function() {
+                alert('You are a kind person. We will spare your life.');
+            });
+        </script>
+
+    </body>
+</html>

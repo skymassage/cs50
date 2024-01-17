@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Greet A</title>
+        <script>
+            function greet() {
+                let name = document.querySelector('#name').value; // Access the text field (box) via ".value" to get any value entered by the user.
+                alert('Hello, ' + name);
+            }
+        </script>
+    </head>
+    <body>
+        <form onsubmit="greet(); return false;">
+        <!-- The "onsubmit" event occurs when a form is submitted,
+             and its value inside of the double quotes there can be JavaScript code. -->
+        <!-- We don't want this form to be submitted to the server via get or post.
+             Just like our previous example of submitting a form, it goes to google.com/search.
+             We actually want our JavaScript code to take control over the entire user experience of this form
+             so that I'm just using the form as a user input mechanism.
+             If you hard-code "return false", which tells the browser not to submit the form, then just calls the greet function.-->
+
+            <input id="name" autocomplete="off" autofocus placeholder="Name" type="text">
+            <button type="submit">Greet</button>
+        </form>
+
+    </body>
+</html>

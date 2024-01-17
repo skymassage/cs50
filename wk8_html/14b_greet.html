@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Greet B</title>
+    </head>
+    <body>
+        <!-- We can separate all the javascript code into another place. -->
+        <form>
+        <input id="name" autocomplete="off" autofocus placeholder="Name" type="text">
+            <button type="submit">Greet</button>
+        </form>
+
+        <!-- The compiler or the interpreter reads the code top to bottom.
+             So when the button is clicked, the javascript code starts executing.
+             That is why we put the javascript code at the bottom in this case. -->
+        <script>
+            /* It turns out that "addEventListener" actually automatically takes a special parameter called an "event".
+               "event" is just a variable, if you will, that refers to to whatever event just happened.
+               In this case, it's going to be "submit". */
+            document.querySelector('form').addEventListener('submit', function(event){
+                let name = document.querySelector('#name').value;
+                alert('Hello, ' + name);
+                event.preventDefault();
+                /* "preventDefault()" means that the default action that belonging to the event will not occur,
+                   so that we don't worry about the default action affecting the function we implement on this event.
+                   For example, this can be useful when:
+                   When clicking a "Submit" button, prevent its default action of submitting the form.
+                   When clicking on a link, prevent its default action of following the URL. */
+            });
+        </script>
+    </body>
+</html>

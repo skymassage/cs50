@@ -1,0 +1,20 @@
+/* Notice that this is verbatim what appeared in our HTML file "css.html". */
+.centere
+{
+    text-align: center;
+}
+
+.large
+{
+    font-size: large;
+}
+
+.medium
+{
+    font-size: medium;
+}
+
+.small
+{
+    font-size: small;
+}

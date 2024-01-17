@@ -1,0 +1,32 @@
+<!-- This example blinks a text at a set interval. -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+
+            // Toggles visibility of greeting
+            function blink()
+            {
+                let body = document.querySelector('body');
+                if (body.style.visibility == 'hidden')
+                {
+                    body.style.visibility = 'visible';
+                }
+                else
+                {
+                    body.style.visibility = 'hidden';
+                }
+            };
+
+            // Blink every 500ms
+            window.setInterval(blink, 500);
+            /* "window.setInterval" takes in two arguments: 1) a function to be called and
+                                                            2) a wait period (in milliseconds) between function calls. */
+
+        </script>
+        <title>Blink</title>
+    </head>
+    <body>
+        hello, world
+    </body>
+</html>

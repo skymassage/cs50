@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>SASS</title>
+        <link rel="stylesheet" href="sass.css">
+        <!-- In order to link this styling to our HTML file, we can't just link to the .scss file
+             because most web browsers only recognize .css files. So we have to download a program called Sass onto our computers.
+             In our terminal, we use the cammand "sass scss_filename.scss:css_filename.css" compile .scss files
+             to .css files with a .map file which connects the CSS file to its source files.
+             So we link this css_filename.css to the HTML file.
+             Here, "sass 13_sass.scss:sass.css" means to compile a .scss file named sass.scss into a .css file named sass.css,
+             to which you can add a link in your HTML page. -->
+        <!-- To speed up this process, we can use the command "sass --watch scss_filename.scss:css_filename.css",
+             which automatically changes the .css file every time a change is detected in the .scss file. -->
+    </head>
+    <body>
+        <ul id="ul_scss">
+            <li>unordered item</li>
+            <li>unordered item</li>
+            <li>unordered item</li>
+        </ul>
+
+        <ol id="ol_scss">
+            <li>ordered item</li>
+            <li>ordered item</li>
+            <li>ordered item</li>
+        </ol>
+
+        <div>
+            <p>This is the paragraph inside the div.</p>
+
+            List inside the div:
+            <ul>
+                <li>item one</li>
+                <li>item two</li>
+                <li>item three</li>
+            </ul>
+        </div>
+
+        <p>This is the paragraph outside the div.</p>
+        List outside the div:
+        <ul>
+            <li>item one</li>
+            <li>item two</li>
+            <li>item three</li>
+        </ul>
+
+        <div class="success">
+            This is a success message!
+        </div>
+        <div class="warning">
+            This is a warning message!
+        </div>
+        <div class="error">
+            This is an error message!
+        </div>
+    </body>
+</html>
