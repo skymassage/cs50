@@ -1,0 +1,127 @@
+Some commands below are typed into the terminal window:
+
+ctrl + `: open terminal or switch between a terminal and a text editor.
+
+ctrl + c: interrupt a program that's running.
+
+The up and down of the arrow keys can get the commands you wrote. Ex: hit up once, there is the last command you wrote and so on.
+
+The dollar sign '$' means it's ready for the next command.
+
+Highlght the code and use the shortcuts to comment out or uncomment:
+ctrl + k + c: comment out lines
+ctrl + k + u: uncomment comments
+ctrl + /: comment out lines, or uncomment lines if they have been commented out
+shift + alt + a: comment out a block code, or uncomment a block code if it has been commented out
+--------------------------------------------------------------------------------------
+
+clear: clear the terminal window.
+ctrl+l: clear the current screen of the terminal window.
+
+--------------------------------------------------------------------------------------
+
+code <file_name.c>: create or open a file called <file_name> in c languaage.
+code <file_name.csv>: create or open a file called <file_name> with a filename extension "csv".
+code <file_name.filename_extension>: create or open a file called <file_name> with a filename extension called <filename_extension>.
+code .../.../<file_name.filename_extension>: create or open a file <file_name.filename_extension> in the directory ".../.../".
+
+--------------------------------------------------------------------------------------
+
+make <file_name>: "make" is a command that will look for the "file_name.c" file, and create an executable file called <file_name> which can be run to execute the code in the file_name.c.
+
+--------------------------------------------------------------------------------------
+
+./file_name: run the program called "file_name" in your current directory, where '.' means the current directory.
+
+--------------------------------------------------------------------------------------
+
+ls: short for "list", read all the files and folders in your current directory, if the filenames have a "*" they are executable.
+dir: similar to "ls"
+
+--------------------------------------------------------------------------------------
+
+cd <directory>: short for "change directory", change your current directory to <directory>, which you specify, in your workspace or on your operating system.
+cd .: navigate to the current directory.
+cd ..: back to the parent directory of the current directory.
+cd ../..: get to the home directory. or you can just type "cd" without anything after it.
+pwd: short for "present working directory", present more detailed working directory.
+
+--------------------------------------------------------------------------------------
+
+mkdir <directory>: short for "make directory",  create a new subdirectory (folder) called <directory> located in the current directory.
+
+--------------------------------------------------------------------------------------
+
+cp <source> <destination>: short for "copy", create a duplicate of the file you specify as <source>, which it will save in <destination>.
+cp -r <source directory> <destination directory>: copy the entired directory (folder), where -r stands for recursive, and tell "cp" to dive down into the directory and copy everything inside of it.
+
+--------------------------------------------------------------------------------------
+
+rm <file>: short for "remove", delete the <file> after it asks you to confirm (y/n) you want to delete it.
+rm -f <file>: delete the file without any confirmation so be careful to use it, where "-f" means force.
+rm -r <directory>: delete entire directories via "-r".
+rm -rf <file>: delete entire directories via "-rf" without any confirmation.
+
+--------------------------------------------------------------------------------------
+
+mv <source> <destination>: short for "move", rename a file, moving it from <source> to <destination>.
+
+--------------------------------------------------------------------------------------
+
+rmdir <directory>: short for "remove directory"  remove the <directory> (folder) if it is empty.
+
+--------------------------------------------------------------------------------------
+
+clang <file_name.c>: short for "C language", which creates an executable file with the default name "a.out" for file_name.c.
+
+clang -o <file_name_2> <file_name_1.c>: similar to the command "make", but it can create an executable file with a different name "file_name_2" than "file_name_2".
+
+clang -o <file_name_2> <file_name_1.c> -l<library_name>: there will be a bug if the functions you use in the third library are undefined references to "clang", because this library you use is not built into C. you should add "-l" and "library_name" at the end with no space between them.
+ex: clang -o <file_name_2> <file_name_1.c> -lcs50, where "cs50" is the name of the third library "cs50.h". this will enable the compiler to access the cs50.h library.
+
+--------------------------------------------------------------------------------------
+
+echo $?: see what exit status your program has ended with.
+
+--------------------------------------------------------------------------------------
+
+valgrind <./file>: check to see if there are memory-related issues with your program.
+
+--------------------------------------------------------------------------------------
+
+python <file.py>: this command is to python what "./<file.c>" is to C, but it does not create an additional executable file.
+                  the program will run through the Python interpreter, which will execute everything inside of the file, top to bottom.
+
+--------------------------------------------------------------------------------------
+
+You can also make the programs look a lot more like C programs when they execute by adding this below:
+#!/usr/bin/env python3
+to the top of the Python files, which automatically finds and executes the interpreter for you.
+
+Then you need to change the permissions on your file as well using the Linux command chmod in the terminal as follows:
+chmod a+x <file.py>
+Finally, you can run this command "./ <file.py>" like in C.
+
+--------------------------------------------------------------------------------------
+
+"time ./file" or "python file.py": calcaulate the running time, where "real = user + sys"
+
+--------------------------------------------------------------------------------------
+
+curl -I <url>: return all the header values of the responses of the server.
+http-server: you will enter an environment in the terminal similar to sqlite3 and you can serve your code by typing this command on this codespace, this serve is available on a URL.
+             as soon as you exit out this environment, this website will go down.
+
+
+--------------------------------------------------------------------------------------
+
+chmod:
+ln:
+touch:
+man:
+diff:
+sudo:
+telnet:
+unzip:
+
+debug50 <./file>: before typing this command, you should create the executable file and don't change the source code.

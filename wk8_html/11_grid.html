@@ -1,0 +1,50 @@
+<!-- Try zooming this page and see what happens. -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Grid</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Another popular way of styling a page is using an CSS grid which offers a grid-based layout system,
+             with rows and columns, making it easier to design web pages without having to use floats and positioning. -->>
+        <style>
+            .grid {
+                background-color: green;
+                display: grid;  /* 	Displays an element as a block-level flex container. */
+                padding: 20px;
+                grid-column-gap: 20px; /* "grid-column-gap" specifies the size of the gap between columns. */
+                grid-row-gap: 10px;    /* "grid-row-gap" specifies the size of the gap between rows. */
+                grid-template-columns: 200px auto 50px;
+                /* "grid-template-columns" specifies the number of columns and the widths of columns in a grid layout.
+                   The values ​​are a space separated list, where each value specifies the size of the respective column.
+                   Here, "200px auto 100px" means three columns, the width of the first column is 200 pixels,
+                   the second one is "auto" which means that the column is automatically resized
+                   based on the size of the container and the size of the item content in the column,
+                   and the last one is 100 pixels. */
+            }
+
+            .grid-item {
+                background-color: orange;
+                font-size: 20px;
+                padding: 20px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="grid">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+            <div class="grid-item">7</div>
+            <div class="grid-item">8</div>
+            <div class="grid-item">9</div>
+            <div class="grid-item">10</div>
+            <div class="grid-item">11</div>
+            <div class="grid-item">12</div>
+        </div>
+    </body>
+</html>

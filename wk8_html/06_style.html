@@ -1,0 +1,195 @@
+<!-- Demonstrates inline CSS with div tags -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Style</title>
+    </head>
+    <body>
+        <div style="font-size: large; text-align: center;">  <!-- Inside "style", you can put the language called CSS.
+                                                                  If you want to specify multiple CSS styles at once,
+                                                                  you must use semicolon ';' to separate each CSS property. -->
+                                                             <!-- The font-size is set to large, medium, or small.
+                                                                  Then text-align is set to center. -->
+            John Harvard
+        </div>
+        <div style="font-size: medium; text-align: center;">
+            Welcome to my home page!
+        </div>
+        <div style="font-size: small; text-align: center;">
+            Copyright &#169; John Harvard
+        </div>
+    </body>
+</html>
+
+<!--------------------------------------------------------------------------------------------------------------------------->
+
+<!-- While correct, the above is not well-designed and redundant.
+     We can factor "text-align: center" out in CSS and put it in the <body>. -->
+<html lang="en">
+    <head>
+        <title>Style</title>
+    </head>
+    <body style="text-align: center">  <!-- "text-align: center" is invoked on the entire body of the HTML file. -->
+        <div style="font-size: large">
+            John Harvard
+        </div>
+        <div style="font-size: medium">
+            Welcome to my home page!
+        </div>
+        <div style="font-size: small">
+            Copyright &#169; John Harvard
+        </div>
+    </body>
+</html>
+
+
+<!DOCTYPE html>
+
+<!--------------------------------------------------------------------------------------------------------------------------->
+
+<!-- It turns out that there is newer semantic text that is included in HTML so we don't need so many <div>. -->
+<!-- Uses semantic tags instead of DIVs -->
+<html lang="en">
+    <head>
+        <title>Style</title>
+    </head>
+    <body style="text-align: center">
+        <header style="font-size: large">  <!-- <header>, <main> and <footer> don't seem to have much of an effect, here.
+                                                And that's because what they are doing is not so much visual as it is more semantic.
+                                                That is, we mean it's changing the structure, but not visual structure.
+                                                It's changing the importance of certain sections of the page.
+                                                So if you look at a search engine like Google,
+                                                Google looks at all of your HTML files,
+                                                and figure out how to index or display your site to others. -->
+            John Harvard
+        </header>
+        <main style="font-size: medium">  <!-- For example, if I wanted to help Google figure out what is the main part of my page,
+                                               I could use this main tag and simply, maybe, encase this part.
+                                               Like let's say not the title, but really the paragraph here and the text itself.
+                                               That's the main part of my page that I want Google to really pay attention to. -->
+            Welcome to my home page!
+        </main>
+        <footer style="font-size: small">
+            Copyright &#169; John Harvard
+        </footer>
+    </body>
+</html>
+
+<!--------------------------------------------------------------------------------------------------------------------------->
+
+<!-- This practice of placing the style and information all in the same location is not good practice.
+     We could move the elements of style to the top of the file and use the type selector. -->
+<!-- Demonstrate type selectors -->
+<html lang="en">
+    <head>
+        <!-- A stylesheet is a set of CSS rules used to control the layout and design of a webpage or document.
+             Internal stylesheets are placed inside a <style> element inside the <head> of a web document,
+             and external stylesheets are placed inside a separate .css file,
+             which is applied to a document by referencing the file inside a <link> element in the document's head. -->
+        <!-- Create an internal stylesheet -->
+        <style>
+            /* In CSS, the comment is not "<!---->". */
+            /* In CSS, selectors are used to target the HTML elements on our web pages that we want to style.
+               There are a wide variety of CSS selectors available, allowing for fine-grained precision when selecting elements to style. */
+            /* A type selector is sometimes referred to as a tag name selector or element selector
+               because it selects an HTML tag/element in the document. */
+            body {
+                text-align: center;
+            }
+
+            header {
+                font-size: large;
+            }
+
+            main {
+                font-size: medium;
+            }
+
+            footer {
+                font-size: small;
+            }
+
+        </style>
+        <title>Style</title>
+    </head>
+    <body>
+        <header>
+            John Harvard
+        </header>
+        <main>
+            Welcome to my home page!
+        </main>
+        <footer>
+            Copyright &#169; John Harvard
+        </footer>
+    </body>
+</html>
+
+<!--------------------------------------------------------------------------------------------------------------------------->
+
+<!-- We can use class selectors which can be applied to multiple tags. -->
+<!-- Demonstrate class selectors -->
+<html lang="en">
+    <head>
+        <style>
+            /* The class selector starts with a dot (.) character, followed by the class name. */
+            .centered {
+                text-align: center;
+            }
+
+            .large {
+                font-size: large;
+            }
+
+            .medium {
+                font-size: medium;
+            }
+
+            .small {
+                font-size: small;
+            }
+
+        </style>
+        <title>Style</title>
+    </head>
+    <body class="centered">
+        <header class="large">
+            John Harvard
+        </header>
+        <main class="medium">
+            Welcome to my home page!
+        </main>
+        <footer class="small">
+            Copyright &#169; John Harvard
+        </footer>
+    </body>
+</html>
+
+<!--------------------------------------------------------------------------------------------------------------------------->
+
+<!-- It turns out that we can move all our style code into a special file called a CSS file.
+     We can create a file called "style.css" and paste our classes there: -->
+<!-- Demonstrates external stylesheets -->
+
+<html lang="en">
+    <head>
+        <title>Style</title>
+        <link href="style.css" rel="stylesheet">  <!-- We then can tell the browser where to locate the CSS for this HTML file via <link>. -->
+                                                  <!-- "style.css" is linked to this HTML file as a stylesheet, telling the browser where to locate the styles we created.
+                                                       "rel" attribute specifies the relationship between the current document and the linked document (resource),
+                                                       where "stylesheet" is a text file that contains lots of styles, lots of CSS properties. -->
+    </head>
+    <body class="centered">
+        <header class="large">
+            John Harvard
+        </header>
+        <main class="medium">
+            Welcome to my home page!
+        </main>
+        <footer class="small">
+            Copyright &#169; John Harvard
+        </footer>
+    </body>
+</html>

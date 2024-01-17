@@ -1,0 +1,109 @@
+<!-- Demonstrate additional form attributes -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Form</title>
+    </head>
+    <body>
+        <div>  <!-- <div>: define a division or a section in an HTML document and
+                           is used as a container for HTML elements,
+                           which is then styled with CSS or manipulated with JavaScript.
+                           Note there is no visual seperation for <div>. -->
+            Arbitrary first division
+        </div>
+        <div>
+            Here is a form:
+            <!-- An HTML "form" is used to collect user input. The user input is most often sent to a server for processing.
+                 The thing with text boxes and buttons that you and I use every day on any number of websites. -->
+            <form>
+                <p>
+                    <!-- <input ...>: define a field within an HTML form. -->
+                    <!-- name & value: is used to reference form data after a form is submitted, or to reference elements in a JavaScript.
+                                       so that the back-end server can retrieve the corresponding field value through the specified name.
+                                       Thus, there are two attributes "name" and "value" which are a key-value pair, "name" is a key and "value" is a value. -->
+                    <!-- type: is what type of data it accepts. -->
+                    Text: <input name="text0" type="text" >
+                    <!-- The type "text" create basic single-line text fields. -->
+                    <!-- Here we don't set the attribute "value", so the value of the key "text0" is what you type in this textbox. -->
+
+                    Password: <input name="password0" type="password" >
+                    <!-- The type "password" provide a way for the user to securely enter a password. -->
+                </p>
+                <p>
+                    <div>
+                        Radio 1: <input name="radio0" type="radio" >
+                        <!-- Radio buttons are normally presented in radio groups
+                             (a collection of radio buttons describing a set of related options).
+                             Only one radio button in a group can be selected at the same time.
+                             As long as each radio button has the same name, that's why they are mutually exclusive.
+                             Therefore, selecting one radio button turns off the other radio buttons because they have the same name.
+                             Radio buttons are typically rendered as small circles,
+                             which are filled or highlighted when selected. -->
+                    </div>
+                    <div>
+                        Radio 2: <input name="radio0" type="radio" >
+                    </div>
+                </p>
+                <p>
+                    <div>
+                        Checkbox 1: <input name="checkbox1" type="checkbox" >
+                        <!-- Checkboxes are used to let a user select one or more options of a limited number of choices.
+                             The exact appearance depends upon the operating system configuration under
+                             which the browser is running. Generally this is a square but it may have rounded corners. -->
+                    </div>
+                    <div>
+                        Checkbox 2: <input name="checkbox2" type="checkbox" >
+                    </div>
+                </p>
+                <p> <!-- <datalist> contains a set of <option> elements that represent the permissible
+                         or recommended options available to choose from within other controls. -->
+                    <!-- To bind <datalist> to the control, we give it a unique identifier in the "id" attribute,
+                         and then add the "list" attribute to <input> with the same identifier as value.
+                         Only certain types of <input> support this behavior, and it can also vary from browser to browser. -->
+                    <input name="country" list="countries" placeholder="Country">
+                    <datalist id="countries">
+                        <option value="China">Chinese</option>
+                        <option value="France">French</option>
+                        <option value="Germany">German</option>
+                        <option value="Japan">Japanese</option>
+                        <option value="United State">American</option>
+                        <!-- Note that the key-pair is not the content in <option>.
+                             For example, the key-pair "countries": "China" instead of "countries": "Chinese".-->
+                    </datalist>
+                    <p>
+                        Submit: <input name="submit0" type="submit" >
+                        <!-- The type "submit" are rendered as buttons.
+                             When the click event occurs (typically because the user clicked the button),
+                             the user agent attempts to submit the form to the server. -->
+                    </p>
+                </p>
+
+            </form>
+        </div>
+
+        <div>
+            <form action="https://www.google.com/search" method="get">
+            <!-- The "action" attribute specifies the URL where the form-data is sent when the form is submitted,
+                 so here the form-data is sent to "https://www.google.com/search". -->
+            <!-- The default method when submitting form data is "get".
+                 "get" is to append form-data into the URL in key-value pairs,
+                 and use '?' as the separator; use '&' to concatenation the key-value pairs,
+                 where key here is the "name" in the input and value is your input.
+                 For example, URL?name1=value1&name2=value2. -->
+            <!-- The length of a URL is limited (about 3000 characters).
+                 Never use GET to send sensitive data! (will be visible in the URL), such as passwords. -->
+
+                <input autocomplete="off" autofocus name="q" placeholder="Query" type="search">
+                <!-- autocomplete: if autocomplete="on", when you type in the search box,
+                                   it will display the records you searched for. -->
+                <!-- autofocus: automatically get focus with the cursor blinking in that box when the page loads. -->
+                <!-- If you want to send the form data to Google search, you must set name="q" in <input>,
+                     because it is the fixed URL format "https://www.google.com/search?q=<input_value>" for Google search. -->
+
+                <input type="submit" value="Google Search">
+
+            </form>
+        </div>
+    </body>
+</html>

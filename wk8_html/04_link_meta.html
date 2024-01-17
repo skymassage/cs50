@@ -1,0 +1,49 @@
+<!-- Demonstrate link, and responsive design and Open Graph (OG) tags -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width"> <!-- This set of meta attributes makes this page mobile-friendly. -->
+        <!-- Meta tag is used to hold information about the data within the HTML file. -->
+        <!-- name: specifie a name for the metadata
+             viewport: control the viewport (the user's visible area of a web page),
+                       a <meta> viewport element gives the browser instructions on how to control the page's dimensions and scaling.
+             content: describe metadata within an HTML document
+             initial-scale=1.0: set the initial zoom level when the page is first loaded by the browser.
+                                The initial scale should be 1. That is no matter who visits your site,
+                                it shouldn't start zoomed in or zoomed out, it should start at just the default sizing.
+                                (Minimum: 0.1. Maximum: 10. Default: 1)
+             width=device-width: set the width of the page to follow the screen-width of the device
+                                 (which will vary depending on the device). -->
+
+        <!------------------------------------------------------------------------------------------------------->
+
+        <!-- If you've ever shared a URL on Facebook or Twitter or Discord or any number of websites nowadays
+             that automatically show a preview where you suddenly see the default image of the page,
+             maybe a few sentences or words of text or something like that. Sometimes those applications,
+             those websites, will just choose the first image it finds on the website or the first sentence it sees and show that.
+             But that might not be very user friendly or search engine friendly.
+             And so a developer might want to control what it is that Discord, Facebook, Twitter, and other such sites show by default.
+             For that you can use nowadays what are called "open graph" (OG) tags, which is to say there's other uses of the meta tag.
+             And you just look these things up.-->
+        <!-- The meta tag can also have a "property" attribute that can be these very specific strings.
+             OG title, OG description, OG image, which denotes Open Graph, which again,
+             is this standard that's evolved in recent years.
+             And what you can do here is to tell browsers and in turn servers what you want them to show as the default title of the page,
+             the description of the page, and even the default image just so you can exercise more control when sharing things socially nowadays as well.
+             It just boils down to these key value pairs.  -->
+        <!-- Note that these key value pairs relate to the title and description of the web page. -->
+        <meta property="og:title" content="CS50">
+        <meta property="og:description" content="Introduction to the intellectual enterprises of computer science and the art of programming.">
+        <meta property="og:image" content="cat.jpg">
+
+        <title>Link and meta</title>
+    </head>
+    <body>
+        Visit <a href="3_image_video.html">Harvard image and video</a>.  <!-- <a>: the anchor tag is used to make "Harvard image and video" a linkable text. -->
+        Visit <a href="https://www.harvard.edu/">Harvard website</a>.   <!-- Don't just type "harvard.edu", it doesn't work. -->
+        <!-- When you move your cursor on the hypertext,
+             you can see the URL you're going to visit at the bottom left of the window.
+             And check if the URL is consistent with the hypertext. -->
+    </body>
+</html>

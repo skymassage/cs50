@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JavaScript</title>
+        <style>
+            table {
+                border: 3px solid black;
+                border-collapse: collapse;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+
+            td {
+                border: 1.5px solid black;
+            }
+
+            .title {
+                background-color: gray;
+            }
+
+            .centered {
+                text-align: center;
+            }
+
+            #add1 {                       /* The id selector uses the id attribute of an HTML element to select a specific and unique element.
+                                             By definition, ids are unique, so there cannot be more than one element in the page with a repetitive id.
+                                             The id selector starts with a hash (#) character, followed by the id of the element. */
+                background-color: #012169;
+                border: 1.5pt dashed;
+            }
+
+            #add2 {
+                background-color: rgb(123, 175, 212);
+                border: 1.5pt dashed;
+            }
+        </style>
+    </head>
+    <body class="centered">
+        <h1>Duke vs. UNC Basketball Game</h1>
+        <main>
+            <p>Click the buttons to add a point to each team</p>
+            <table>
+                <tr>
+                    <td class="title">Team 1</td>
+                    <td class="title">Team 2</td>
+                </tr>
+                <tr>
+                    <td id="score1">0</td>  <!-- The HTML "id" attribute is used to specify a unique id for an HTML element. -->
+                    <td id="score2">0</td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="add1">+1</button>
+                    </td>
+                    <td>
+                        <button id="add2">+1</button>
+                    </td>
+                </tr>
+            </table>
+        </main>
+
+        <!-- In JavaScript, the goal is often to define some events that the user can do on the page and then define
+             what should happen when the user takes that event.
+             Within the <script>, we're basically trying to set up what is going to happen,
+             what will be triggered later, and define the code we want to run when that event happens. -->
+        <script>
+            /* We're trying to set up some kind of button over here, that when that button is clicked,
+               we want to run some kind of code -- the function we've defined.
+               And by setting this kind of entity equal to this function here, we're wiring this button to that piece of code. */
+
+            let team1 = 0; // Create two new variables by "let", note that the semicolon ';' is at the end like C.
+            let team2 = 0;
+
+            /* document.querySelector('#add1').onclick = function() {...}:
+               First, "document.querySelector('#add1')" is saying starting at the document element, the very top level element,
+               and go through the document object model (DOM) or all HTML elements to find the one that has the ID "add1".
+               And then ".onclick" is saying that I want the attribute called "onclick" of this button.
+               Finally, assign the entire thing to an anonymous function "function() {...}",
+               meaning that when the user clicks this button, I want to run this function, in this case. */
+
+            /* The Document method "querySelector()" returns the first element within the document that matches the specified selector,
+               or group of selectors. If no matches are found, null is returned. If the element is an ID, it should be preceded by #. */
+
+            /* In JavaScript, a function is defined with the "function" keyword: function func_name(arg1, ...) {...}.
+               Ane JavaScript allows us to define an anonymous function without name, like this: function(arg1, ...) {...}. */
+
+            // Using single quote (') in the JavaScript, double quote (") in the HTML, which is a common convention.
+            document.querySelector('#add1').onclick = function() {
+                if (team2 < 11) {
+                    team1++;
+                    document.querySelector('#score1').innerHTML = team1;  /* "innerHTML" is to get the thing inside the tags,
+                                                                             i.e., "..." within <tag>...</tag>. */
+                    if (team1 > 10) {
+                        alert('Team 1 has won!');  // The alert(message) method displays an alert box with a message and an OK button.
+                    }
+                }
+            };
+
+            // We can do the same thing by event handler, which is to utilize "addEventListener(event_type, function)".
+            /* The method "addeventlistener" listens to a particular event being happening on a specified element,
+               and if it happened, then it executes a certain function in response for that.
+               In this case, the element is "document.querySelector('#add2')". */
+            document.querySelector('#add2').addEventListener('click', function() {
+                if (team1 < 11) {
+                    team2++;
+                    document.querySelector('#score2').innerHTML = team2;
+                    if (team2 > 10 && team1 < 11) {
+                        alert('Team 2 has won!');
+                    }
+                }
+            });
+        </script>
+  </body>
+</html>

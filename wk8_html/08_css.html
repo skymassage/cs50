@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>CSS</title>
+        <style>
+            #_div {
+                border: 3px dotted black; /* I can specify whether I want the border to be a "solid" line or a "dashed" or "dotted" line */
+                background-color: orange;
+                width: 500px;
+                height: 500px;
+                padding: 20px;
+                /* Padding is on the inside of the border of the element. Here, I add 20 pixels of padding.
+                   That is, the content in the <div> has 20 pixels of space from the border of <div>.
+                   And that's padding on the inside of the element. */
+                margin: 30px;
+                /* Margin is on the outside of the border of the element.
+                   Here, I add 30 pixels of margin along the outside of <div>'s border to space itself out from other elements near it. */
+                font-family: cursive, sans-serif;
+                /* The type of font for text on page. Not all computers support all fonts.
+                   So I could specify that just in case "cursive" isn't supported, fall back to any sans-serif font. */
+                font-size: 20px;
+                font-weight: bold;
+                /* Set the weight (boldness) of the font. The weights available depend on the font-family that is currently set.
+                   You can set the font-weight to a number between 1 and 1000. Here, "bold" is 700 and "normal" is 400. */
+            }
+
+            table {
+                border: 1px solid black;
+                border-collapse: collapse;
+                /* Set whether cells inside a <table> have shared or separate borders.
+                   Here, "collapse" is shared borders. The default is "separate" that separates borders */
+            }
+
+            /* Use multiple selectors to set two elements to the same style. */
+            th, td {
+                border: 1px dashed black;
+                padding: 10px;
+            }
+
+            /* Descendant selector: matches all elements that are descendants of a specified element.
+                                    here I only want to style the table inside of id="descendant". */
+            #descendant table {
+                border: 1px solid black;
+                border-collapse: separate;
+                /* Note that border-collapse is not the default because we have already set it above,
+                   so we still change it to "separate". */
+            }
+
+            #descendant th, #descendant td {
+                border: 1px dashed black;
+                padding: 10px;
+            }
+
+            /* Child selector: selects all elements that are the children of a specified element. */
+            ul > li {           /* Here you can also leave out '>' to just use the descendant selector. */
+                color: blue;
+            }
+            /* The descendant selector selects all the elements which are inside of a given parent,
+               doesn't matter if they are the direct child or the nested child.
+               The child selector on the other hand selects only those elements which are the direct children of the parent.
+               The nested child elements remain unaffected. */
+
+            /* Attributes selector: select elements with a specified attribute.
+                                    use "[]" to specify a particular attribute of an HTML element. */
+            a[href="https://www.amazon.com/"] {
+                color: orange;
+            }
+
+            button {
+                background-color: green;
+                width: 200px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            /* A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected element(s).
+               For example, the pseudo-class ":hover" (no space between : and hover) can be used to select a button
+               when a user's pointer hovers over the button and this selected button can then be styled. */
+            button:hover {
+                background-color: orange;
+            }
+
+            /* The priority of applying CSS styles to HTML elements:
+               1. In-line styling (add the style attribute (style="...") to HTML elements or tags)
+               2. id
+               2. class
+               3. element type */
+            #foo {
+                color: green;
+            }
+
+            .bar {
+                color: red;
+            }
+
+            h1 {
+                color: blue;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="_div">
+            Hello, world!
+        </div>
+
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ocean</th>
+                        <th>Average Depth</th>
+                        <th>Maximum Depth</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pacfic Ocean</td>
+                        <td>4280 m</td>
+                        <td>10911 m</td>
+                    </tr>
+                    <tr>
+                        <td>Atlantic Ocean</td>
+                        <td>3646 m</td>
+                        <td>8486 m</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="descendant">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ocean</th>
+                        <th>Average Depth</th>
+                        <th>Maximum Depth</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pacfic Ocean</td>
+                        <td>4280 m</td>
+                        <td>10911 m</td>
+                    </tr>
+                    <tr>
+                        <td>Atlantic Ocean</td>
+                        <td>3646 m</td>
+                        <td>8486 m</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <ol>
+                <li>foo</li>
+                <li> bar
+                    <ul>
+                        <li>hello</li>
+                        <li>goodbye</li>
+                        <li>hello</li>
+                    </ul>
+                </li>
+                <li>baz</li>
+            </ol>
+        </div>
+
+        <div>
+            <ol>
+                <li><a href="https://www.google.com/">Google</a></li>
+                <li><a href="https://www.amazon.com/">Amazon</a> </li>
+                <li><a href="https://www.facebook.com/">Facebook</a></li>
+            </ol>
+        </div>
+
+        <div>
+            <button>Button 1</button>
+            <button>Button 2</button>
+            <button>Button 3</button>
+        </div>
+
+        <div>
+            <h1 style="color: orange">Hello</h1>
+            <h1 style="color: purple">Hello</h1>
+            <h1 id="foo">Hello</h1>
+            <h1 class="bar">Hello</h1>
+            <h1 class="bar">Hello</h1>
+            <h1>Hello</h1>
+            <h1>Hello</h1>
+        </div>
+
+    </body>
+</html>

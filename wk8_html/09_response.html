@@ -1,0 +1,39 @@
+<!-- Try zooming this page and see what happens. -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Response</title>
+        <!-- Responsive design is about making sure that the web pages look good, no matter how you're looking at the web page,
+             such as viewing websites on computers, smartphones and tablets. -->
+        <!-- We can achieve this through knowledge of the viewport.
+             The viewport is the part of the screen that is actually visible to the user at any given time.
+             By default, many webpages assume that the viewport is the same on any device, which is what leads to many sites
+             (especially older ones) being difficult to interact with on mobile devices.
+             One simple way to improve the appearance of a site on a mobile device is to add the following line in the head of our HTML files.
+             This line tells the mobile device to use a viewport that is the same width as that of the device you’re using rather than a much larger one. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            /* Another way we can deal with different devices is through media queries.
+               Media queries are ways of changing the style of a page based on how the page is being viewed. */
+            /* Use the '@' symbol and say "media" and then specify for what type of media I would like to apply this query.
+               We can use these media queries to fine tune control how our page is going to look on various different types of devices. */
+            @media (min-width: 600px) {
+                /* If the width of the page is 600 pixels or larger, the background color is red. */
+                body {
+                    background-color: red;
+                }
+            }
+
+            @media (max-width: 599px) {
+                /* If the size of the screen is 599 pixels or fewer,  the background color is blue. */
+                body {
+                    background-color: blue;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to the page!</h1>
+    </body>
+</html>

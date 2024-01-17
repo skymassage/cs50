@@ -1,0 +1,61 @@
+<!-- Demonstrate lists and table -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>List and table</title>
+    </head>
+    <body>
+        <ul>  <!-- Unordered list tag: demarcate the beginning and end of an unordered (bulleted) list. -->
+            <li>foo</li>
+            <li>bar</li>
+            <li>baz</li>
+        </ul>
+
+        <ol>  <!-- Ordered list tag: demarcate the beginning and end of an ordered (numbered) list. -->
+            <li>foo</li>  <!-- List item tag: demarcate list items with an ordered or unordered list. -->
+            <li>bar</li>
+            <li>baz</li>
+        </ol>
+
+        <ol start=6>  <!-- The "start" attribute is to set the starting point of a list, so "start=6" will start counting at six. -->
+            <li>foo</li>
+            <li>bar</li>
+            <li>baz</li>
+        </ol>
+
+        <table>  <!-- <table>: demarcate the beginning and end of a table definition. -->
+            <thead>  <!-- <thead>: define a set of rows defining the head of the columns of the table. -->
+                <tr>  <!-- <tr>: define a row of cells in a table, where the row's cells can then be established using a mix of <td> (data cell) and <th> (header cell) elements. -->
+                    <th>&nbsp</th>  <!-- <th>: define a cell as the header of a group of table cells,
+                                               where the exact nature of this group is defined by the "scope" and headers attributes.
+                                         &nbsp: the non-breaking space which is a space character that prevents an automatic line break at its position. -->
+                    <th scope="col">Timestamp</th> <!-- scope: specify whether a header cell is a header for a column ("col"), row ("row"), or group of columns ("colgroup") or rows ("rowgroup"). -->
+                    <th scope="col">language</th>
+                    <th scope="col">problem</th>
+                </tr>
+            </thead>
+            <body>  <!-- <tbody>: encapsulate a set of table rows (<tr> elements),
+                                  indicating that they comprise the body of the table. -->
+                <tr>
+                    <th scope="row">1</th>
+                    <td>10/24/2022 8:33:26</td>  <!-- <td>: define a cell of a table that contains data. -->
+                    <td>C</td>
+                    <td>Credit</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>10/24/2022 10:32:26</td>
+                    <td>Python</td>
+                    <td>Runoff</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>10/24/2022 11:10:47</td>
+                    <td>Python</td>
+                    <td>Mario</td>
+                </tr>
+            </body>
+        </table>
+    </body>
+</html>

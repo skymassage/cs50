@@ -1,0 +1,73 @@
+<!-- Demonstrate HTML -->
+
+<!DOCTYPE html>  <!-- Document type declaration,
+                      it's a implicit indicator to the browser that you're using the latest version of HTML,
+                      which is version 5 now. -->
+
+<html lang="en">  <!-- Open (start) tag: open or start the file.
+                       Everything in between the start tag and end tag is called an HTML element. -->
+                  <!-- "lang" is an attribute that modifies the behavior of a tag,
+                       it's similar to a argument to a function in C or in Python.
+                       lang="en" tells the web browser or anyone looking at the HTML of this page
+                       that this page is written in English. This is helpful for search engines.
+                       For example, when they're looking through many different web pages trying to figure out what language each web page is in,
+                       we can just tell the search engine or anyone else who's looking at the page that this page is written in English. -->
+
+    <head>  <!-- The head tag, <head>, is a container for metadata and is placed between <html> and <body>.
+                 Metadata is data about the HTML document, and is not displayed.
+                 Metadata typically define the document title, character set, styles, scripts, and other meta information. -->
+        <title>Hello</title>  <!-- Show the title name on the browser tag and title bar. -->
+    </head>
+    <body>  <!-- The <body> tag defines the document's body.
+                 The <body> element contains all the contents of an HTML document,
+                 such as headings, paragraphs, images, hyperlinks, tables, lists, etc. -->
+          <h1>First level header</h1>  <!-- Header tag: the text between these tags will be rendered as i-th level section headers. -->
+          <p>  <!-- Paragraph tag: text between these tags will be rendered as a paragraph by the browser.-->
+              Hello, world.
+          </p>
+          <p>
+              This text is <b>bold</b>, this text is <i>italic</i>, and this text is <u>underlined</u>.
+              <!-- <b>: text between these tags will be rendered in boldface by the browser.
+                   <i>: text between these tags will be rendered in italics by the browser.
+                   <u>: text between these tags will be rendered underlined by the browser -->
+
+              This text is <strong>bold</strong>, this text is <em>italic</em>.
+              <!-- <strong> is visually identical to <b>, making text bold.
+                   In HTML5, the <b> and <strong> tags have a different meaning.
+                   The difference between these tags is that <b> makes the text look bold only visually,
+                   whereas the <strong> also gives a semantic emphasize indicating the text.
+                   For example, screen readers and other assistive technologies recognize the tag as indicating significant content for <strong>.
+                   On the other hand, it’s recommended to use <b> if you need to increase the font-weight of a particular word,
+                   phrase, or paragraph only for presentation purposes. -->
+              <!-- The relationship of <i> and <em> is similar to <b> and <strong>. -->
+          </p>
+          <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus convallis scelerisque quam, vel hendrerit lectus viverra eu. Praesent posuere eget lectus ut faucibus. Etiam eu velit laoreet, gravida lorem in, viverra est. Cras ut purus neque. In porttitor non lorem id lobortis. Mauris gravida metus libero, quis maximus dui porta at. Donec lacinia felis consectetur venenatis scelerisque. Nulla eu nisl sollicitudin, varius velit sit amet, vehicula erat. Curabitur sollicitudin felis sit amet orci mattis, a tempus nulla pulvinar. Aliquam erat volutpat.
+          </p>
+
+          <h2>Second level header</h2>
+          <p>
+              Mauris ut dui in eros semper hendrerit. Morbi vel elit mi. Sed sit amet ex non quam dignissim dignissim et vel arcu. Pellentesque eget elementum orci. Morbi ac cursus ex. Pellentesque quis turpis blandit orci dapibus semper sed non nunc. Nulla et dolor nec lacus finibus volutpat. Sed non lorem diam. Donec feugiat interdum interdum. Vivamus et justo in enim blandit fermentum vel at elit. Phasellus eu ante vitae ligula varius aliquet. Etiam id posuere nibh.
+          </p>
+
+          <h3>Third level header</h3>
+          <p>
+              Aenean venenatis convallis ante a rhoncus. Nullam in metus vel diam vehicula tincidunt. Donec lacinia metus sem, sit amet egestas elit blandit sit amet. Nunc egestas sem quis nisl mattis semper. Pellentesque ut magna congue lorem eleifend sodales. Donec tortor tortor, aliquam vitae mollis sed, interdum ut lectus. Mauris non purus quis ipsum lacinia tincidunt.
+          </p>
+
+          <h4>Fourth level header</h4>
+          <p>
+              Integer at justo lacinia libero blandit aliquam ut ut dui. Quisque tincidunt facilisis venenatis. Nullam dictum odio quis lorem luctus, vel malesuada dolor luctus. Aenean placerat faucibus enim a facilisis. Maecenas eleifend quis massa sed eleifend. Ut ultricies, dui ac vulputate hendrerit, ex metus iaculis diam, vitae fermentum libero dui et ante. Phasellus suscipit, arcu ut consequat sagittis, massa urna accumsan massa, eu aliquet nulla lorem vitae arcu. Pellentesque rutrum felis et metus porta semper. Nam ac consectetur mauris.
+          </p>
+
+          <h5>Fifth level header</h5>
+          <p>
+              Suspendisse rutrum vestibulum odio, sed venenatis purus condimentum sed. Morbi ornare tincidunt augue eu auctor. Vivamus sagittis ac lectus at aliquet. Nulla urna mauris, interdum non nibh in, vehicula porta enim. Donec et posuere sapien. Pellentesque ultrices scelerisque ipsum, vel fermentum nibh tincidunt et. Proin gravida porta ipsum nec scelerisque. Vestibulum fringilla erat at turpis laoreet, nec hendrerit nisi scelerisque.
+          </p>
+
+          <h6>Sixth level header</h6>
+          <p>
+              Sed quis malesuada mi. Nam id purus quis augue sagittis pharetra. Nulla facilisi. Maecenas vel fringilla ante. Cras tristique, arcu sit amet blandit auctor, urna elit ultricies lacus, a malesuada eros dui id massa. Aliquam sem odio, pretium vel cursus eget, scelerisque at urna. Vestibulum posuere a turpis consectetur consectetur. Cras consequat, risus quis tempor egestas, nulla ipsum ornare erat, nec accumsan nibh lorem nec risus. Integer at iaculis lacus. Integer congue nunc massa, quis molestie felis pellentesque vestibulum. Nulla odio tortor, aliquam nec quam in, ornare aliquet sapien.
+          </p>
+    </body>
+</html>  <!-- Close (stop) tag: close or stop the file. -->

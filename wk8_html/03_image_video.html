@@ -1,0 +1,21 @@
+<!-- Demonstrate image and video -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Image and video</title>
+    </head>
+    <body>
+        <img alt="Harvard University" src="harvard.jpg" width="300">
+        <!-- src: indicate the path where the image file can be located.
+             alt: is an alternate text for an image in case, for some reason (maybe wrong image path),
+                  the image doesn't get displayed.
+             width="300": this picture is 300 pixels wide. -->
+        <!-- <img> is self-closing and make no sense with </img>,
+             because the image is just a single HTML element that cannot contain content within itself. -->
+        <video autoplay loop muted width="1280">
+        <!-- Video loops to play automatically and mutes with width="1280"-->
+            <source src="halloween.mp4" type="video/mp4">
+        </video>
+    </body>
+</html>
