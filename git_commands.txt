@@ -43,7 +43,7 @@ git branch: See which branch you’re currently working on, which will have an a
             The branch you are currently looking at is determined by the HEAD.
             By default, the HEAD is pointed at the main branch, but we can check out other branches as well.
 
-git checkout -b <new_branch_name>: Make a new branch ans switch to it
+git checkout -b <new_branch_name>: Make a new branch and switch to it
 git checkout <branch_name>: Switch to the branch which have existed.
 
 git merge <other_branch_name>: Merge the other branck into the current version of this branch
