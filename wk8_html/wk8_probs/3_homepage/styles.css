@@ -1,3 +1,5 @@
+/* The asterisk (*) is the CSS universal selectors which means it will select all elements 
+   within that portion of the DOM. */
 * {
     margin: 0;
     padding: 0;
