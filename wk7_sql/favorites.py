@@ -6,8 +6,10 @@ db = SQL("sqlite:///favorites.db")  # Open database: "db = SQL("sqlite:///favori
 favorite = input("Favorite problem: ")
 
 # This SQL command within the quotation marks is passed to "db.execute".
-# Note that "rows" is returned as a list of dictionaries when using "SELECT". So if your query returns nothing, like no matches, you will get back an empty list.
-# Don't use f-strings for SQL queries in "", because it just pastes the whole strings intactly, some pieces of which may cause generating unnecessary SQL commands that are even harmful to cybersecurity, such as SQL injection attacks.
+# Note that "rows" is returned as a list of dictionaries when using "SELECT". So if your query returns nothing, 
+# like no matches, you will get back an empty list.
+# Don't use f-strings for SQL queries in "", because it just pastes the whole strings intactly, some pieces of 
+# which may cause generating unnecessary SQL commands that are even harmful to cybersecurity, such as SQL injection attacks.
 # You should use a placeholder which can address these suspicious strings. In the world of SQL, single question mark '?' are used as placeholders.
 rows = db.execute("SELECT COUNT(*) FROM favorites WHERE problem = ?", favorite)
 #rows = db.execute("SELECT COUNT(*) FROM favorites WHERE problem LIKE ?", "%" + favorite + "%")  # If you are not sure about the name of your favorite problem, you can use "LIKE" and "%".

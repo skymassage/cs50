@@ -11,6 +11,11 @@ sqlite3 <database.db> -- use the third version of SQLite to create or get into t
 .timer -- turn on a SQLite feature that can time queries.
 .timer on -- keep track of how long each command takes (run time: real = user + sys).
 .read <file.sql> -- run the commands of <file.sql> in SQLite.
+
+.headers <on/off> -- Turn table headers display on or off
+.mode <tabular_output_mode> -- <tabular_output_mode> has four modes: column, table, markdown, box. 
+                            -- These modes will turn ".header" on if it has not been previously set.
+
 cat <file.sql> | sqlites <database.db> -- also can use but this command, it should be used outside outside of sqlite3.
 cat filename.sql | sqlite3 movies.db > <output.txt> -- redirect the output of the query to a text file called <output.txt>
 
@@ -39,11 +44,13 @@ SELECT DISTINCT(<column>) AS <new_column> FROM <table;>
 SELECT COUNT(DISTINCT(<column>)) AS <new_column> FROM <table>;
 
 -- Other command
-WHERE -- adding a Boolean expression to filter our data
-LIKE -- filtering responses more loosely (use "LIKE" when wanting to roughly match something)
-ORDER BY -- ordering responses
-LIMIT -- limiting the number of responses
-GROUP BY -- grouping responses together ("WHERE" is applied before "GROUP BY")
+WHERE -- Add a Boolean expression to filter our data
+LIKE -- Filter responses more loosely (use "LIKE" when wanting to roughly match something)
+ORDER BY -- Order the results based on a specified column
+LIMIT -- Limit the number of results returned by a query
+GROUP BY -- Group results by a specified column ("WHERE" is applied before "GROUP BY")
+HAVING -- Allow for additional constraints based on the number of results. 
+       -- If you use "HAVING", you must include "GROUP BY" and "HAVING" is applied after "GROUP BY".
 
 ----------------------------------------------------------------------SQL command examples for favorites.csv and favorites.db
 
@@ -63,6 +70,7 @@ SELECT * FROM favorites ORDER BY problem DESC, language DESC; -- display rows in
 -- Note that it sort based on ASCII, if the string contains numbers or symbols instead of just alphabet.
 
 SELECT * FROM favorites GROUP BY language; -- only display the rows with the first occurrence of each "language".
+SELECT * FROM favorites GROUP BY language HAVING language="Python"; -- display the row which includes language="Python" in "SELECT * FROM favorites GROUP BY language".
 
 SELECT language, COUNT(*) FROM favorites GROUP BY language; -- it displays a two column table where the first column is language and the second column is the count thereof from this data set.
                                                             -- "GROUP BY language" means that shows "C" only once, "Python" only once, and so on.
@@ -94,11 +102,11 @@ ex: SELECT LaNGUAGe FROM favorites;
 
 ---------------------------------------------------------------In SQLite, there are five datatypes and two special constraints
 
-BLOB -- binary large objects that are groups of ones and zeros
-INTEGER -- an integer
-NUMERIC -- for numbers that are formatted specially like dates
-REAL -- like a float
-TEXT -- for strings and the like
+BLOB -- (Binary Large Object): Any other binary data that we may want to store in our database (Ex. an image)
+INTEGER -- An integer
+NUMERIC -- A more general form of numeric data (Ex. A date or boolean value)
+REAL -- Any real number
+TEXT -- For strings of text
 
 NOT NULL -- ensure the values in a column are not NULL
 UNIQUE -- ensures all values in a column or a group of columns are distinct from one another or unique.
@@ -112,14 +120,16 @@ SELECT title FROM shows WHERE id IN (SELECT show_id FROM genres WHERE genre = 'C
 SELECT title FROM shows WHERE title IN (SELECT title FROM shows WHERE id IN (SELECT show_id FROM genres WHERE genre = 'Comedy') LIMIT 10) ORDER BY title;
 -- Display the first 10 comedy show titles alphabetically.
 
-SELECT title FROM shows WHERE id IN (SELECT show_id FROM stars WHERE person_id = (SELECT id FROM people WHERE name = 'Steve Carell'));
 -- Display the show titles related to Steve Carell, we can divide this command into three steps as below:
 1. SELECT id FROM people WHERE name = 'Steve Carell';
 2. SELECT show_id FROM stars WHERE person_id = (SELECT id FROM people WHERE name = 'Steve Carell');
 3. SELECT title FROM shows WHERE id IN (SELECT show_id FROM stars WHERE person_id = (SELECT id FROM people WHERE name = 'Steve Carell'));
 
 -- Use "JOIN ... ON ..." to combine tables as below:
-ex: SELECT * FROM shows JOIN genres ON shows.id = genres.show_id LIMIT 10; -- (You can omit "shows." and "genres." if you are familiar with these two tables. However, if the names of the columns are same, you should use them to specify which table)
+ex: SELECT * FROM shows JOIN genres ON shows.id = genres.show_id LIMIT 10; -- (You can omit "shows." and "genres." 
+                                                                           -- if you are familiar with these two tables. 
+                                                                           -- However, if the names of the columns are same, 
+                                                                           -- you should use them to specify which table)
     SELECT * FROM shows JOIN ratings ON shows.id = ratings.show_id WHERE title = 'The Office';
     SELECT * FROM shows JOIN stars ON shows.id = stars.show_id JOIN ratings ON ratings.show_id = shows.id LIMIT 10;
     SELECT COUNT(*) FROM shows JOIN ratings ON shows.id = ratings.show_id WHERE rating > 9.5;
@@ -148,13 +158,21 @@ ex: CREATE INDEX title_index on shows (title); -- this tells sqlite3 to create a
     -- Compare the running time of "SELECT * FROM shows WHERE title = 'The Office';" before and after "CREATE INDEX title_index on shows (title);"
 
 ----------------------------------------------------------------------
--- The example of the creating table command
+-- One example of the creating table command
 CREATE TABLE IF NOT EXISTS <table_name> (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
    	<column1> [data_type] NOT NULL UNIQUE,
 	<column2> [data_type] DEFAULT 0
 );
 -- Attempting to create a table that already exists will result in an error, so "IF NOT EXISTS" is the option to create a new table if it does not exist.
--- "DEFAULT 0" means to set all values in <column2> to "0".
+-- id: It is often helpful to have an number that allows us to uniquely identify each row in a table. 
+--     Here we have specified that the data type of id is integer, and also id is our primary key, meaning it is our unique identifier. 
+--     We have additionally specified that it will "AUTOINCREMENT", which means we will not have to provide an id every time we add to the table because it will be done automatically.
+-- DEFAULT: Provides a default value if no value is given. So "DEFAULT 0" means to set all values in <column2> to "0".
+-- NOT NULL: Makes sure a value is provided
+-- PRIMARY KEY: Indicates this is the primary way of searching for a row in the database
+-- UNIQUE: Ensures that no two rows have the same value in that column.
+
 -- The examples for roster.db
 CREATE TABLE students (id INTEGER, student_name TEXT, PRIMARY KEY(id));
 CREATE TABLE houses (id INTEGER, house TEXT, head TEXT, PRIMARY KEY(id));
