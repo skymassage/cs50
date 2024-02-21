@@ -15,37 +15,38 @@ class MyClassStr():
         self.x = anyNumber
         self.y = anyString
     def __str__ (self):
-        return 'MyClass(x=' + str(self.x) + ', y=' + self.y + ')'
+        return 'MyClassStr(x=' + str(self.x) + ', y=' + self.y + ')'
 
 class MyClassRepr():
     def __init__(self, anyNumber, anyString):
         self.x = anyNumber
         self.y = anyString
     def __repr__ (self):
-        return 'MyClass(x=' + str(self.x) + ', y=' + self.y + ')'
+        return 'MyClassRepr(x=' + str(self.x) + ', y=' + self.y + ')'
 
 # "MyClassDefault" shows an example where neither "__str__" nor "__repr__" are defined. 
 # Calling "__str__" calls the default "__repr__" method, and they all give the same output, the pointer of our object.
 myObject_default = MyClassDefault(12345, "Hello")
 print("---------------------------------------Default")
-print(myObject_default.__str__())
-print(myObject_default.__repr__())
-print(myObject_default)
+print(myObject_default.__str__())                                    # <__main__.MyClassDefault object at 0x7feae63effd0>
+print(myObject_default.__repr__())                                   # <__main__.MyClassDefault object at 0x7feae63effd0>
+print(myObject_default)                                              # <__main__.MyClassDefault object at 0x7feae63effd0>
 print()
+
 
 # "MyClassStr" shows the output once you have defined "__str__". 
 # When "__str__", print(), or str() are called you will get your defined output. 
 # Make note that the "__repr__" output remains the same.
 myObject_str = MyClassStr(12345, "Hello")
 print("---------------------------------------__str__ method")
-print(myObject_str.__str__())
-print(myObject_str)
-print(str(myObject_str))
-print(myObject_str.__repr__())
+print(myObject_str.__str__())                                        # MyClassStr(x=12345, y=Hello)
+print(myObject_str)                                                  # MyClassStr(x=12345, y=Hello)
+print(str(myObject_str))                                             # MyClassStr(x=12345, y=Hello)
+print(myObject_str.__repr__())                                       # <__main__.MyClassStr object at 0x7feae63efe20>
 
 myObject_repr = MyClassRepr(12345, "Hello")
 print("---------------------------------------__repr__ method")
-print(myObject_repr.__str__())
-print(myObject_repr)
-print(str(myObject_repr))
-print(myObject_repr.__repr__())
+print(myObject_repr.__str__())                                       # MyClassRepr(x=12345, y=Hello)
+print(myObject_repr)                                                 # MyClassRepr(x=12345, y=Hello)
+print(str(myObject_repr))                                            # MyClassRepr(x=12345, y=Hello)
+print(myObject_repr.__repr__())                                      # MyClassRepr(x=12345, y=Hello)
