@@ -11,7 +11,9 @@
                we must put all the elements into a <div> and set the "display" property in this <div> to flex.
                Then, the direct children of this container become flex items.
                We also add some additional styling to the inner <div>s to better illustrate the wrapping that’s occuring here. */
-            #container {
+            #container { /* The id selector uses the id attribute of an HTML element to select a specific and unique element.
+                            By definition, ids are unique, so there cannot be more than one element in the page with a repetitive id.
+                            The id selector starts with a hash (#) character, followed by the id of the element. */
 
                 display: flex; /* "display" sets whether an element is treated as a block or inline box and the layout used for its children,
                                   such as flow layout, grid or flex.
@@ -29,7 +31,7 @@
         </style>
     </head>
     <body>
-        <div id="container">
+        <div id="container">  <!-- The HTML "id" attribute is used to specify a unique id for an HTML element. -->
             <div>Some text 1!</div>
             <div>Some text 2!</div>
             <div>Some text 3!</div>

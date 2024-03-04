@@ -12,7 +12,8 @@
     </head>
     <body>
         <form onsubmit="greet(); return false;">
-        <!-- The "onsubmit" event occurs when a form is submitted,
+        <!-- "onsubmit" attribute gives the browser instructions for what should happen when the form is submitted,
+             i.e., the "onsubmit" event occurs when a form is submitted;
              and its value inside of the double quotes there can be JavaScript code. -->
         <!-- We don't want this form to be submitted to the server via get or post.
              Just like our previous example of submitting a form, it goes to google.com/search.
@@ -23,6 +24,5 @@
             <input id="name" autocomplete="off" autofocus placeholder="Name" type="text">
             <button type="submit">Greet</button>
         </form>
-
     </body>
 </html>

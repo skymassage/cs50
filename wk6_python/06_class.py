@@ -1,7 +1,10 @@
 # Class example
 class EXAMPLE():
+    class_attr, class_attr_list = 0, [1, 2]
+    #  "a" and "b" are the attributes of instances and "class_attr" and "class_attr_list" are the attributes of the "EXAMPLE" class.
+
     def __init__(self, a, b):
-        self.a , self.b = a, b
+        self.a , self.b = a, b      # "self" means the instance created from the "EXAMPLE" class.
         # pass                      # "pass" if you don't decalre any variable here.
 
     def __call__(self, x, y):
@@ -24,12 +27,32 @@ class EXAMPLE():
     def multiply(self, x, y):
         return x * y
 
-ex = EXAMPLE(a=2, b=3)
+ex = EXAMPLE(a=2, b=3)  # EXAMPLE is a "class" and "ex" is the instance.
 ex.print_class_name()
 ex(x=100, y=200)
 ex.method(m=4, n=5)
 ex.cite()
+print("\n==========================\n")
 
+ex = EXAMPLE(a=0, b=0)
+print(ex.class_attr, EXAMPLE.class_attr)
+
+# Changing class attributes will influence all instances.
+EXAMPLE.class_attr = 1            
+print(ex.class_attr, EXAMPLE.class_attr)
+
+# But this is limited to changing class attributes from class, it won't influence all instances if we change class attrubutes from instances.
+ex.class_attr = 2    
+print(ex.class_attr, EXAMPLE.class_attr)
+
+# Note that if the class atrrributes are mutable type, it will influence all instances.
+# mutable: list, dict, set
+# immutable: tuple, str, boolean, int, float
+# When the value of a mutable variable changes, the memory address doesn't change; 
+# when the value of an immutable variable changes, the memory address changes.
+print(ex.class_attr_list, EXAMPLE.class_attr_list)
+ex.class_attr_list.append(3)
+print(ex.class_attr_list, EXAMPLE.class_attr_list)
 print("\n==========================\n")
 
 # Inherit the class "EXAMPLE"
@@ -56,3 +79,4 @@ ex_inherit = INHERIT(a=100, b=200, k=7, l=8)
 ex_inherit.print_class_name()
 ex_inherit.method(m=10, n=20)        # We can also use the method from the parent class "EXAMPLE".
 ex_inherit.print_multiply(x=5, y=6)
+print(ex_inherit.class_attr)
