@@ -1,8 +1,8 @@
 # Class example
 class EXAMPLE():
     class_attr, class_attr_list = 0, [1, 2]
-    #  "a" and "b" are the attributes of instances and "class_attr" and "class_attr_list" are the attributes of the "EXAMPLE" class.
 
+    #  "a" and "b" are the attributes of instances and "class_attr" and "class_attr_list" are the attributes of the "EXAMPLE" class.
     def __init__(self, a, b):
         self.a , self.b = a, b      # "self" means the instance created from the "EXAMPLE" class.
         # pass                      # "pass" if you don't decalre any variable here.
