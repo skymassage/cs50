@@ -4,6 +4,7 @@
     <head>
         <title>Greet A</title>
         <script>
+            // Use "function" define a function.
             function greet() {
                 let name = document.querySelector('#name').value; // Access the text field (box) via ".value" to get any value entered by the user.
                 alert('Hello, ' + name);
@@ -19,7 +20,7 @@
              Just like our previous example of submitting a form, it goes to google.com/search.
              We actually want our JavaScript code to take control over the entire user experience of this form
              so that I'm just using the form as a user input mechanism.
-             If you hard-code "return false", which tells the browser not to submit the form, then just calls the greet function.-->
+             If you hard-code "return false", which tells the browser not to submit the form, so just calls "greet".-->
 
             <input id="name" autocomplete="off" autofocus placeholder="Name" type="text">
             <button type="submit">Greet</button>

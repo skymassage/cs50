@@ -11,14 +11,16 @@
             <button type="submit">Greet</button>
         </form>
 
-        <!-- The compiler or the interpreter reads the code top to bottom.
+        <!-- The compiler or the interpreter reads the code top to bottom,
+             so JavaScript code run before the template has been rendered.
              So when the button is clicked, the javascript code starts executing.
              That is why we put the javascript code at the bottom in this case. -->
         <script>
-            /* It turns out that "addEventListener" actually automatically takes a special parameter called an "event".
-               "event" is just a variable, if you will, that refers to to whatever event just happened.
-               In this case, it's going to be "submit". */
-            document.querySelector('form').addEventListener('submit', function(event){
+            /* It turns out that "addEventListener" actually automatically takes two arguments.
+               The first is called "event" which is just a variable, that refers to to whatever event just happened.
+               In this case, it's going to be "submit".
+               The second is a function to run when the "event" is detected. */
+            document.querySelector('form').addEventListener('submit', function(event) {  // This is an anonymous function, which is a function that is never given a name.
                 let name = document.querySelector('#name').value;
                 alert('Hello, ' + name);
                 event.preventDefault();
