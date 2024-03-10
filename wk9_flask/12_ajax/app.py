@@ -11,7 +11,8 @@ db = SQL("sqlite:///shows.db")
 def index():
     return render_template("index.html")
 
-# This time you won't be directed to another URL to view the search results, but you can append "/search?q=..." to the root URL and go to this route to view the results.
+# This time you won't be directed to another URL to view the search results because we don't send the form, 
+# but you still can go to this route to view the results by appending "/search?q=..." to the root URL in the browser.
 @app.route("/search")
 def search():
     q = request.args.get("q")

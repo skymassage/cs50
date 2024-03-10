@@ -20,10 +20,10 @@
                 let shows = await response.json(); // "response.json()" is another promise that resolves with the body of the response parsed as JSON.
                 let html = '';
                 for (let index in shows) {
-                    /* If some names ofthe shows have actually '<' or '&', that could break our HTML entirely.
+                    /* If some names of the shows have actually '<' or '&', that could break our HTML entirely.
                        ".replace()" is used to replace a specified value with another value in a string.
 
-                       This is done to prevent any potential HTML injection, as '<' (less than symbol) and '&' (ampersand symbol) have special meanings in HTML.
+                       This is done to prevent any potential HTML injection because '<' and '&' have special meanings in HTML.
                        By replacing them with their respective HTML entities (&lt; and &amp;),
                        the browser will display the symbols as they are, instead of interpreting them as HTML code.
 
