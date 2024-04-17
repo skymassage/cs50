@@ -133,15 +133,18 @@ elif s in ["n", "no"]:   # same as: elif s == "n" or s == "no":
 print("12-----------------------")
 
 
-
-# A set will only store each value once. Define an empty set using "set()". Use the method ".add()" and ".remove()"
-# to add and remove elements from a set, and ".len()" to find the set's size.
-s = set()
+# Set is a data type which is an unordered collection with no duplicate elements.
+# Use the method ".add()" and ".remove()" to add and remove elements from a set, and ".len()" to find the set's size.
+s = set() # Define an empty set using "set()" or "{}". You can create a non-empty set like this: s = {1, 2, 3, 4}
 s.add(1), s.add(2), s.add(3), s.add(4)
 s.add(3), s.add(1) # Despite adding 3 and 1 to the set twice, each item can only appear once in a set.
 s.remove(2)
 print(s)
 print(f"The set has {len(s)} elements.")
+# print(s[0]) # Set cannot use index to access the element of a set.
+# But sets are iterable:
+for element in s:
+    print(element)
 # Note that dictionaries and sets are unordered, and strings and tuples are immutable,
 # where mutable means that once a sequence has been defined, we can change individual elements of that sequence,
 # and ordered means that the order of the objects matters. Note that "len()" works on all sequences (tuple, list, dict, set string) in python.
