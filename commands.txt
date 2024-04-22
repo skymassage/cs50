@@ -115,13 +115,4 @@ http-server: you will enter an environment in the terminal similar to sqlite3 an
 
 --------------------------------------------------------------------------------------
 
-chmod:
-ln:
-touch:
-man:
-diff:
-sudo:
-telnet:
-unzip:
-
 debug50 <./file>: before typing this command, you should create the executable file and don't change the source code.
