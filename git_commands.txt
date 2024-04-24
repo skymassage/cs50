@@ -39,7 +39,7 @@ git reset --hard origin/main: Revert your code to the version currently stored o
                               "origin/mian" is the version of my repository that's currently on GitHub,
                               where the "main" branch is your default branch, which is generally going to contain the up-to-date, stable version of your code.
 
-git branch: See which branch you’re currently working on, which will have an asterisk to the left of its name.
+git branch: See which branch you're currently working on, which will have an asterisk to the left of its name.
             The branch you are currently looking at is determined by the HEAD.
             By default, the HEAD is pointed at the main branch, but we can check out other branches as well.
 
