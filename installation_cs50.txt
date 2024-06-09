@@ -1,0 +1,12 @@
+------------------------------------cs50
+sudo apt-get update
+sudo apt-get install python3
+sudo apt-get install python3-pip
+sudo apt install unzip
+pip3 install cs50
+sudo apt install python3-flask
+pip3 install flask
+pip3 install flask_session
+pip install requests
+pip install cachelib
+sudo apt install sqlite3
