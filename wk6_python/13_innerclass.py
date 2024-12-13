@@ -1,7 +1,7 @@
-
 class OuterClass:
     def __init__(self):
-        self.inner_instance = self.InnerClass() # Instantiate inner class, and use "self." because InnerClass is nested inside OuterClass.
+        # Instantiate inner class, and use "self." because InnerClass is nested inside OuterClass.
+        self.inner_instance = self.InnerClass() 
 
     def reveal(self):
         self.inner_instance.inner_display("Call InnerClass's function from OuterClass")
@@ -13,7 +13,7 @@ class OuterClass:
             print(msg)
 
 
-print("--------------------------------------------------Visit the inner class")
+print("-------------------------------------------------- Visit the inner class")
 outer_obj = OuterClass()
 outer_obj.reveal()
 OuterClass().InnerClass().inner_display("Call InnerClass's method directly")
@@ -36,11 +36,13 @@ class OuterClass:
             print("This is the inner method")
             print("Outer var:", self.outer_instance.outer_var)
 
-print("--------------------------------------------------Use the outer class's attributes and methods in the inner class")
+print("-------------------------------------------------- Use the outer class's attributes and methods in the inner class")
 outer_obj = OuterClass()
-inner_obj = OuterClass.InnerClass(outer_obj) # Create the inner class object and pass the instance of the outer class to the inner class.
+# Create the inner class object and pass the instance of the outer class to the inner class, so we can use the outer class functions in the inner class. 
+inner_obj = OuterClass.InnerClass(outer_obj) 
 inner_obj.inner_method()
-inner_obj.outer_instance.outer_method() # Here is access the inner class's attribute to use the outer method.
+# Here is access the inner class's attribute to use the outer method.
+inner_obj.outer_instance.outer_method() 
 
 # Nested class
 class OuterClass:
@@ -62,7 +64,7 @@ class OuterClass:
             def inner_inner_display(self):
                 print("This is multilevel InnerInner class")
 
-print("--------------------------------------------------Nested class")
+print("-------------------------------------------------- Nested class")
 outer_obj = OuterClass()
 inner_obj = outer_obj.InnerClass()
 inner_obj.inner_display()

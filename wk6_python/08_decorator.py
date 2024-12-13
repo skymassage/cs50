@@ -126,7 +126,7 @@ def a(func):
     def inner(*args, **kwargs):
         print(f"The last element of args: {args[-1]}")
         kwargs["new_key"] = (789, "Hi", [3,2,1])
-        print(f"New key of *kwargs: {kwargs["new_key"]}")
+        print(f"New key of *kwargs: {kwargs['new_key']}")
         return func(*args, **kwargs)
     return inner
 

@@ -36,7 +36,7 @@ print()
 
 # "MyClassStr" shows the output once you have defined "__str__". 
 # When "__str__", print(), or str() are called you will get your defined output. 
-# Make note that the "__repr__" output remains the same.
+# Note that the "__repr__" output remains the same.
 myObject_str = MyClassStr(12345, "Hello")
 print("---------------------------------------__str__ method")
 print(myObject_str.__str__())                                        # MyClassStr(x=12345, y=Hello)

@@ -7,6 +7,7 @@ class EXAMPLE():
         self.a , self.b = a, b      # "self" means the instance created from the "EXAMPLE" class.
         # pass                      # "pass" if you don't decalre any variable here.
 
+    # To write classes where the instances behave like functions and can be called like a function.
     def __call__(self, x, y):
         print(f"x = {x}, y = {y}")
         print(f"x + y = {x + y}")
@@ -42,7 +43,7 @@ EXAMPLE.class_attr = 1
 print(ex.class_attr, EXAMPLE.class_attr)
 
 # But this is limited to changing class attributes from class, it won't influence all instances if we change class attrubutes from instances.
-ex.class_attr = 2    
+ex.class_attr = 2
 print(ex.class_attr, EXAMPLE.class_attr)
 
 # Note that if the class atrrributes are mutable type, it will influence all instances.
@@ -60,6 +61,7 @@ class INHERIT(EXAMPLE):
     def __init__(self, a, b, k, l):
         # Still need to define "a" and "b" in "__init__" to inherit the property "a" and "b" of the parent class "EXAMPLE".
         # Use "super().__init__()" to inherit the perporty of the parent class.
+        # "super()" is used to call the method of the parent class, and we can also use "super()" to call other methods of the parent class.
         # Note that you must inherit all the properties of the class, so here you cannot only inherit the property "a" of "EXAMPLE".
         super().__init__(a, b)
         self.k, self.l = k, l
