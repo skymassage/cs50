@@ -12,9 +12,9 @@ print(f"The docstring inside the function: {example.__doc__}")  # Show a docstri
 
 print("------------------------------------ Without \"@wraps\"")
 def decorator_without_wraps(f):
-    def wrapper(*args, **kwds):
+    def wrapper(*args, **kwargs):
         print("Decorator without @wraps")
-        return f(*args, **kwds)
+        return f(*args, **kwargs)
     return wrapper
 
 @decorator_without_wraps
@@ -36,9 +36,9 @@ from functools import wraps    # Use "wraps" from "functools"
 
 def decorator_with_wraps(f):
     @wraps(f)                           # Use "@wraps" to
-    def wrapper(*args, **kwds):
+    def wrapper(*args, **kwargs):
         print("Decorator with @wraps")
-        return f(*args, **kwds)
+        return f(*args, **kwargs)
     return wrapper
 
 @decorator_with_wraps
